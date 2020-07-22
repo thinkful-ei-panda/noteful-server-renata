@@ -1,6 +1,6 @@
 const express = require('express');
 const xss = require('xss');
-const logger = require('../logger');
+const logs = require('../logs');
 
 const foldersRouter = express.Router();
 const bodyParser = express.json();
@@ -24,7 +24,7 @@ foldersRouter
   })
   .post(bodyParser, (req, res, next) => {
     if (!req.body['folder_name']) {
-      logger.error('folder_name is requried');
+      logs.error('folder_name is requried');
       return res.status(400).send({
         error: { message: 'Missing folder_name in request body' }
       });
@@ -39,7 +39,7 @@ foldersRouter
       newFolder
     )
       .then(folder => {
-        logger.info(`Folder with id ${folder.id} created.`);
+        logs.info(`Folder with id ${folder.id} created.`);
         res
           .status(201)
           .location(`/api/folders/${folder.id}`)
@@ -55,7 +55,7 @@ foldersRouter
     FoldersService.getById(req.app.get('db'), id)
       .then(folder => {
         if (!folder) {
-          logger.error(`Folder with id ${id} not found`);
+          logs.error(`Folder with id ${id} not found`);
           return res.status(404).json({
             error: { message: 'Folder Not Found' }
           });
@@ -73,7 +73,7 @@ foldersRouter
 
     FoldersService.deleteFolder(req.app.get('db'), id)
       .then(numRowsAffected => {
-        logger.info(`Folder with id ${id} deleted.`);
+        logs.info(`Folder with id ${id} deleted.`);
         res.status(204).end();
       })
       .catch(next);

@@ -1,6 +1,6 @@
 const express = require('express');
 const xss = require('xss');
-const logger = require('../logger');
+const logs = require('../logs');
 
 const notesRouter = express.Router();
 const bodyParser = express.json();
@@ -27,7 +27,7 @@ notesRouter
   .post(bodyParser, (req, res, next) => {
     for (const field of ['note_name', 'content', 'folder_id']) {
       if (!req.body[field]) {
-        logger.error(`${field} is required`);
+        logs.error(`${field} is required`);
         return res.status(400).send({
           error: { message: `Missing '${field}' request in body` }
         });
@@ -43,7 +43,7 @@ notesRouter
       newNote
     )
       .then(note => {
-        logger.info(`Note with id ${note.id} created.`);
+        logs.info(`Note with id ${note.id} created.`);
         res
           .status(201) //created
           .location(`/api/notes/${note.id}`)
@@ -60,7 +60,7 @@ notesRouter
     NotesService.getById(req.app.get('db'), id)
       .then(note => {
         if (!note) {
-          logger.error(`Note with id ${id} not found`);
+          logs.error(`Note with id ${id} not found`);
           return res.status(404).json({
             error: { message: 'Note Not Found' }
           });
@@ -81,7 +81,7 @@ notesRouter
       id
     )
       .then(numRowsAffected => {
-        logger.info(`Note with id ${id} deleted.`);
+        logs.info(`Note with id ${id} deleted.`);
         res.status(204).end();
       })
       .catch(next);
