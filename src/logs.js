@@ -1,7 +1,7 @@
 const winston = require('winston');
 const { NODE_ENV } = require('./config');
 
-const logs = winston.createlogs({
+const logs = winston.createLogger({
   level: 'info',
   format: winston.format.json(),
   transports: [
