@@ -1,1 +1,15 @@
 {"message":"Unauthorized request to path: /","level":"error"}
+{"message":"Unauthorized request to path: /api/notes","level":"error"}
+{"message":"Unauthorized request to path: /api/folders","level":"error"}
+{"message":"Unauthorized request to path: /api/notes","level":"error"}
+{"message":"Unauthorized request to path: /api/folders","level":"error"}
+{"message":"Unauthorized request to path: /api/notes/2","level":"error"}
+{"message":"insert into \"folders\" (\"folder_name\") values ($1) returning * - duplicate key value violates unique constraint \"folders_pkey\"","level":"error"}
+{"message":"insert into \"folders\" (\"folder_name\") values ($1) returning * - duplicate key value violates unique constraint \"folders_pkey\"","level":"error"}
+{"message":"Unauthorized request to path: /api/folders/","level":"error"}
+{"message":"insert into \"folders\" (\"folder_name\") values ($1) returning * - duplicate key value violates unique constraint \"folders_pkey\"","level":"error"}
+{"message":"Unauthorized request to path: /api/folders/","level":"error"}
+{"message":"Unauthorized request to path: /favicon.ico","level":"error"}
+{"message":"Folder with id 4 created.","level":"info"}
+{"message":"Note with id 7 created.","level":"info"}
+{"message":"Note with id 8 created.","level":"info"}
