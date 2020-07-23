@@ -13,3 +13,9 @@
 {"message":"Folder with id 4 created.","level":"info"}
 {"message":"Note with id 7 created.","level":"info"}
 {"message":"Note with id 8 created.","level":"info"}
+{"message":"Folder with id 5 created.","level":"info"}
+{"message":"Note with id 9 created.","level":"info"}
+{"message":"Note with id 10 created.","level":"info"}
+{"message":"Note with id 10 deleted.","level":"info"}
+{"message":"Unauthorized request to path: /","level":"error"}
+{"message":"Unauthorized request to path: /api/folders","level":"error"}

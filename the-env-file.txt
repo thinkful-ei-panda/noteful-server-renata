@@ -1,7 +1,0 @@
-NODE_ENV=development
-PORT=8000
-EXAMPLE="example-environmental-variable"
-#DB_URL="postgresql://username:password@localhost/databasename"
-DB_URL="postgresql://dunder_mifflin:2@localhost/noteful"
-TEST_DB_URL="postgresql://dunder_mifflin:2@localhost/noteful-test"
-API_TOKEN="ebfb7ff0-b2f6-41c8-bef3-4fba17be410c"
